@@ -11,9 +11,12 @@ import NewsDetails from "./components/projects/NewsDetails";
 import { ReactLenis, useLenis } from 'lenis/react'
 import ScrollToAnchor from './components/ScrollToAnchor';
 import { HashRouter as Router } from 'react-router-dom';
+import ConvertTextToSql from "./components/projects/ConvertTextToSql";
+import WhatsAppIcon from "./components/WhatsAppIcon";
+
 const App = () => {
   return (
-    <ReactLenis root>
+    /*<ReactLenis root>*/
     <BrowserRouter >
       <Header />
       <main>
@@ -25,13 +28,13 @@ const App = () => {
           <Route path="/projects/educational-task-management" element={<EducationDetails />} />
           <Route path="/projects/tic-tac-toe-game" element={<JoueDetails />} />
           <Route path="/projects/news-updates" element={<NewsDetails />} />
-            {/* Route vers la page de détail d'un projet */}
-          {/* Ajouter d'autres routes pour d'autres projets ici */}
+          <Route path="/projects/convert-text-to-sql" element={<ConvertTextToSql />} />
         </Routes>
       </main>
       <Footer />
+      <WhatsAppIcon/>
     </BrowserRouter>
-    </ReactLenis>
+    /*</ReactLenis>*/
   );
 }
 

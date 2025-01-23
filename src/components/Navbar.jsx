@@ -9,6 +9,14 @@ const Navbar = ({ navOpen }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const sections = [
+    { id: "home", offset: 0 },
+    { id: "about" },
+    { id: "competences" },
+    { id: "work" },
+    { id: "contact" },
+  ];
+
   const updateActiveBox = (element) => {
     if (activeBox.current && element) {
       activeBox.current.style.top = element.offsetTop + "px";
@@ -18,6 +26,7 @@ const Navbar = ({ navOpen }) => {
     }
   };
 
+  // Met à jour la position de la box active sur redimensionnement
   useEffect(() => {
     const handleResize = () => {
       const activeElement = document.querySelector(`.nav-link[href="/#${activeId}"]`);
@@ -27,35 +36,41 @@ const Navbar = ({ navOpen }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [activeId]);
 
+  // Gère l'activation automatique au défilement
   useEffect(() => {
-    // Vérifie si nous sommes sur une page de projet
-    const isProjectPage = location.pathname.startsWith('/projects/');
-    
-    if (!isProjectPage) {
-      // Si nous sommes sur la page d'accueil, utiliser le hash
-      const hash = location.hash.replace('#', '') || 'home';
-      setActiveId(hash);
-      const activeElement = document.querySelector(`.nav-link[href="/#${hash}"]`);
-      updateActiveBox(activeElement);
-    } else {
-      // Si nous sommes sur une page de projet, garder la section "work" active
-      setActiveId('work');
-      const activeElement = document.querySelector(`.nav-link[href="/#work"]`);
-      updateActiveBox(activeElement);
-    }
-  }, [location]);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      let currentActiveId = 'home';
 
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const offsetTop = element.offsetTop - 100; // Marge pour ajuster l'activation
+          const offsetHeight = element.offsetHeight;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            currentActiveId = section.id;
+          }
+        }
+      });
+
+      setActiveId(currentActiveId);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Gère l'activation via clic
   const handleClick = (event, id) => {
     event.preventDefault();
     const hash = id.replace('/#', '');
     setActiveId(hash);
-    
-    // Si nous sommes sur une page de projet, d'abord naviguer vers la page d'accueil
+
+    // Si nous sommes sur une page de projet, naviguer vers l'accueil
     if (location.pathname.startsWith('/projects/')) {
       navigate('/', { state: { scrollTo: hash } });
     }
 
-    // Attendre un court instant pour que la navigation soit terminée
     setTimeout(() => {
       const element = document.getElementById(hash);
       if (element) {
@@ -70,7 +85,7 @@ const Navbar = ({ navOpen }) => {
     { label: "À propos", link: "/#about" },
     { label: "Compétences", link: "/#competences" },
     { label: "Projets", link: "/#work" },
-    { label: "Contact", link: "/#contact", className: "md:hidden" }
+    { label: "Contact", link: "/#contact", className: "md:hidden" },
   ];
 
   return (
@@ -92,7 +107,7 @@ const Navbar = ({ navOpen }) => {
 };
 
 Navbar.propTypes = {
-  navOpen: PropTypes.bool.isRequired
+  navOpen: PropTypes.bool.isRequired,
 };
 
 export default Navbar;

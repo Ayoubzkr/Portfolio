@@ -40,6 +40,12 @@ const works = [
     tags: ['HTML', 'CSS', 'Web Design'],
     projectLink: '/projects/news-updates'
   },
+  {
+    imgSrc: '/images/project-7.png',
+  title: 'Convertisseur de fichies texte en SQL',
+  tags: ['C#', 'Development'],
+  projectLink: '/projects/convert-text-to-sql'
+  },
 ];
 
 const Work=()=>{
