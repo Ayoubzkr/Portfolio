@@ -13,7 +13,7 @@ const NewsDetails = () => {
           <h3 className="text-2xl font-semibold text-gray-300 mb-4">Regardez la démo :</h3>
           <div className="relative pb-[40.25%] mb-8">
             <iframe 
-              src="/videos/atm.webm" 
+              src="/videos/nouvelles.mp4" 
               title="Démo du site de nouvelles"
               className="absolute inset-0 w-full h-full rounded-lg shadow-lg"
               allowFullScreen

@@ -21,7 +21,7 @@ const ATMProjectDetails = () => {
             <h3 className="text-2xl font-semibold text-gray-300 mb-4">Regardez la démonstration :</h3>
             <div className="relative pb-[56.25%] h-0 mb-8">
               <iframe 
-                src="/videos/atm.webm" 
+                src="/videos/edutasker.mp4" 
                 title="Démo du système de gestion éducative"
                 className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
                 allowFullScreen

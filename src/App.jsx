@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./components/Home";  // Importer Home
-import ATMProjectDetails from "./components/projects/ATMProjectDetails";  // Exemple de route pour un projet
+import ATMProjectDetails from "./components/projects/ATMProjectDetails"; 
 import CabinetDetails from "./components/projects/CabinetDetails";
 import OpticianDetails from "./components/projects/OpticianDetails";
 import EducationDetails from "./components/projects/EducationDetails";
@@ -16,7 +16,7 @@ import WhatsAppIcon from "./components/WhatsAppIcon";
 
 const App = () => {
   return (
-    /*<ReactLenis root>*/
+    <ReactLenis root>
     <BrowserRouter >
       <Header />
       <main>
@@ -34,7 +34,7 @@ const App = () => {
       <Footer />
       <WhatsAppIcon/>
     </BrowserRouter>
-    /*</ReactLenis>*/
+    </ReactLenis>
   );
 }
 
