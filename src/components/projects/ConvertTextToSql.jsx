@@ -59,8 +59,8 @@ const ConvertTextToSql = () => {
             {[1, 2, 3].map((n) => (
               <Screenshot 
                 key={n}
-                src={`/images/execution${n}.png`}
-                alt={`Capture d'écran ${n} du système ATM`}
+                src={`/images/conv${n}.png`}
+                alt={`Capture d'écran ${n} du convertisseur SQL`}
               />
             ))}
           </div>

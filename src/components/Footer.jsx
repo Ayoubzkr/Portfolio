@@ -33,7 +33,7 @@ const sitemap = [
     },
     {
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/ayoub-zekri-11ba5a156/'
+      href: 'https://linkedin.com/in/ayoub-zokri-11ba5a156'
     },
     {
       label: 'Twitter X',

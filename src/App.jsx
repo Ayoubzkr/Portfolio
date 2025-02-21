@@ -13,7 +13,7 @@ import ScrollToAnchor from './components/ScrollToAnchor';
 import { HashRouter as Router } from 'react-router-dom';
 import ConvertTextToSql from "./components/projects/ConvertTextToSql";
 import WhatsAppIcon from "./components/WhatsAppIcon";
-
+import PasswordManager from "./components/projects/PasswordManager"
 const App = () => {
   return (
     <ReactLenis root>
@@ -27,6 +27,7 @@ const App = () => {
           <Route path="/projects/optician-management" element={<OpticianDetails/>} />
           <Route path="/projects/educational-task-management" element={<EducationDetails />} />
           <Route path="/projects/tic-tac-toe-game" element={<JoueDetails />} />
+          <Route path="/projects/password-manager" element={<PasswordManager />} />
           <Route path="/projects/news-updates" element={<NewsDetails />} />
           <Route path="/projects/convert-text-to-sql" element={<ConvertTextToSql />} />
         </Routes>

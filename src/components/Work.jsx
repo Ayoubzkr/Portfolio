@@ -2,6 +2,7 @@
  * @copyright 2024 ayoubzokri
  * @license Apache-2.0
  */
+import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 const works = [
   {
@@ -33,6 +34,11 @@ const works = [
     title: 'Tic Tac Toe Game',
     tags: ['Java', 'Game Development'],
     projectLink: '/projects/tic-tac-toe-game'
+  },{
+    imgSrc: '/images/project-8.png',
+    title: 'Gestionnaire de Mots de Passe',
+    tags: ['Java', 'Java Application'],
+    projectLink: '/projects/password-manager'
   },
   {
     imgSrc: '/images/project-6.jpg',
@@ -48,26 +54,43 @@ const works = [
   },
 ];
 
-const Work=()=>{
-    return(
-        <section className="section" id="work">
-            <div className="container">
-                <h2 className="headline-2 mb-8 ">
-                Mes réalisations
-                </h2>
-                <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
-                    {works.map(({imgSrc,title,tags,projectLink},key)=>(
-                        <ProjectCard
-                        key={key}
-                        imgSrc={imgSrc}
-                        title={title}
-                        tags={tags}
-                        projectLink={projectLink}
-                        />
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
-}
-export default Work
+const Work = () => {
+  return (
+    <motion.section 
+      className="section" 
+      id="work"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
+      <div className="container">
+        <motion.h2 
+          className="headline-2 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          Mes réalisations
+        </motion.h2>
+
+        <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
+          {works.map(({ imgSrc, title, tags, projectLink }, key) => (
+            <motion.div 
+              key={key}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, delay: key * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <ProjectCard imgSrc={imgSrc} title={title} tags={tags} projectLink={projectLink} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  );
+};
+
+export default Work;

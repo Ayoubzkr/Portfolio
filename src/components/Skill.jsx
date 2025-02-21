@@ -2,7 +2,9 @@
  * @copyright 2024 ayoubzokri
  * @license Apache-2.0
  */
+import { motion } from "framer-motion";
 import SkillCard from "./SkillCard";
+
 const skillItem = [
    
     {
@@ -81,26 +83,50 @@ const skillItem = [
 
 const Skill = () => {
     return (
-        <section className="section" id="competences">
+        <motion.section
+            className="section"
+            id="competences"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+        >
             <div className="container">
-                <h2 className="headline-2">Technologies clés que j'utilise</h2>
-                <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch]">
-                Découvrez les outils et technologies puissants que j'utilise pour créer des sites web et des applications exceptionnels et performants.
-                </p>
+                <motion.h2
+                    className="headline-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                >
+                    Technologies clés que j'utilise
+                </motion.h2>
+                <motion.p
+                    className="text-zinc-400 mt-3 mb-8 max-w-[50ch]"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    viewport={{ once: true }}
+                >
+                    Découvrez les outils et technologies puissants que j'utilise pour créer des sites web et des applications exceptionnels et performants.
+                </motion.p>
+
                 <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                    {
-                        skillItem.map(({imgSrc,label,desc},key)=>(
-                            <SkillCard
+                    {skillItem.map(({ imgSrc, label, desc }, key) => (
+                        <motion.div
                             key={key}
-                            imgSrc={imgSrc}
-                            label={label}
-                            desc={desc}
-                            />
-                        ))
-                    }
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: key * 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <SkillCard imgSrc={imgSrc} label={label} desc={desc} />
+                        </motion.div>
+                    ))}
                 </div>
             </div>
-        </section>
-    )
-}
-export default Skill
+        </motion.section>
+    );
+};
+
+export default Skill;
