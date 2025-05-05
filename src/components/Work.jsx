@@ -4,6 +4,8 @@
  */
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
+import { lazy, Suspense } from 'react';
+
 const works = [
   {
     imgSrc: '/images/project-1.jpg',
@@ -61,15 +63,15 @@ const Work = () => {
       id="work"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      viewport={{ once: true, margin: "-200px" }}
     >
       <div className="container">
         <motion.h2 
           className="headline-2 mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
         >
           Mes réalisations
@@ -79,12 +81,19 @@ const Work = () => {
           {works.map(({ imgSrc, title, tags, projectLink }, key) => (
             <motion.div 
               key={key}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: key * 0.1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: key * 0.03 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <ProjectCard imgSrc={imgSrc} title={title} tags={tags} projectLink={projectLink} />
+              <Suspense fallback={<div className="w-full h-48 bg-zinc-800 animate-pulse rounded-lg" />}>
+                <ProjectCard 
+                  imgSrc={imgSrc} 
+                  title={title} 
+                  tags={tags} 
+                  projectLink={projectLink} 
+                />
+              </Suspense>
             </motion.div>
           ))}
         </div>
