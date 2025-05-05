@@ -70,13 +70,13 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
         >
-          <figure className="w-full max-w-[400px] ml-auto bg-gradient-to-t from-sky-400 via-25% via-sky-400/40 tp-65% rounded-[60px] overflow-hidden">
+          <figure className="w-full max-w-[350px] ml-auto bg-gradient-to-t from-sky-400 via-25% via-sky-400/40 tp-65% rounded-[60px] overflow-hidden">
             <img
               src="/images/file (2).png"
               width={1527}
               height={1937}
               alt="Ayoub Zokri"
-              className="w-full"
+              className="w-full h-[500px] object-cover object-top"
             />
           </figure>
         </motion.div>
