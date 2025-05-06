@@ -14,6 +14,9 @@ import ConvertTextToSql from "./components/projects/ConvertTextToSql";
 import WhatsAppIcon from "./components/WhatsAppIcon";
 import PasswordManager from "./components/projects/PasswordManager";
 import LenisWrapper from './components/LenisWrapper';
+import DevForumDetails from "./components/projects/DevForumDetails";
+import MediBookDetails from "./components/projects/MediBookDetails";
+import StockMasterDetails from "./components/projects/StockMasterDetails";
 
 const App = () => {
   return (
@@ -31,6 +34,9 @@ const App = () => {
             <Route path="/projects/password-manager" element={<PasswordManager />} />
             <Route path="/projects/news-updates" element={<NewsDetails />} />
             <Route path="/projects/convert-text-to-sql" element={<ConvertTextToSql />} />
+            <Route path="/projects/dev-forum" element={<DevForumDetails />} />
+            <Route path="/projects/medibook" element={<MediBookDetails />} />
+            <Route path="/projects/stock-master" element={<StockMasterDetails />} />
           </Routes>
         </main>
         <Footer />

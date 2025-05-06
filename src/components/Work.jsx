@@ -5,55 +5,86 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { lazy, Suspense } from 'react';
+import { FaGithub } from 'react-icons/fa';
 
 const works = [
   {
     imgSrc: '/images/project-1.jpg',
     title: 'Un système de gestion du guichet automatique',
     tags: ['C#', 'Finance', 'Development'],
-    projectLink: '/projects/atm-management'
+    projectLink: '/projects/atm-management',
+    githubLink: 'https://github.com/yourusername/atm-management'
   },
   {
     imgSrc: '/images/project-2.jpg',
     title: 'CABDTR : gestion de cabinet dentaire',
     tags: ['VB.NET', 'CRUD', 'Desktop Application'],
-    projectLink: '/projects/dental-cabinet-management'
+    projectLink: '/projects/dental-cabinet-management',
+    githubLink: 'https://github.com/yourusername/dental-cabinet'
   },
   {
     imgSrc: '/images/project-3.jpg',
     title: 'Gestion intégrée pour les cabinets des opticiens',
     tags: ['PHP', 'CRUD', 'Printing'],
-    projectLink: '/projects/optician-management'
+    projectLink: '/projects/optician-management',
+    githubLink: 'https://github.com/yourusername/optician-management'
   },
   {
     imgSrc: '/images/project-4.jpg',
     title: 'Gestion des tâches ou missions éducatives',
     tags: ['PHP', 'Education', 'CRUD', 'Printing'],
-    projectLink: '/projects/educational-task-management'
+    projectLink: '/projects/educational-task-management',
+    githubLink: 'https://github.com/yourusername/educational-tasks'
   },
   {
     imgSrc: '/images/project-5.jpg',
     title: 'Tic Tac Toe Game',
     tags: ['Java', 'Game Development'],
-    projectLink: '/projects/tic-tac-toe-game'
-  },{
+    projectLink: '/projects/tic-tac-toe-game',
+    githubLink: 'https://github.com/yourusername/tic-tac-toe'
+  },
+  {
     imgSrc: '/images/project-8.png',
     title: 'Gestionnaire de Mots de Passe',
     tags: ['Java', 'Java Application'],
-    projectLink: '/projects/password-manager'
+    projectLink: '/projects/password-manager',
+    githubLink: 'https://github.com/yourusername/password-manager'
   },
   {
     imgSrc: '/images/project-6.jpg',
     title: 'Site Web Nouvelle',
     tags: ['HTML', 'CSS', 'Web Design'],
-    projectLink: '/projects/news-updates'
+    projectLink: '/projects/news-updates',
+    githubLink: 'https://github.com/yourusername/news-website'
   },
   {
     imgSrc: '/images/project-7.png',
-  title: 'Convertisseur de fichies texte en SQL',
-  tags: ['C#', 'Development'],
-  projectLink: '/projects/convert-text-to-sql'
+    title: 'Convertisseur de fichies texte en SQL',
+    tags: ['C#', 'Development'],
+    projectLink: '/projects/convert-text-to-sql',
+    githubLink: 'https://github.com/yourusername/text-to-sql-converter'
   },
+  {
+    imgSrc: '/images/forum.avif',
+    title: 'DevForum - Forum pour Développeurs',
+    tags: ['Python', 'Flask', 'Tailwind CSS', 'Web Development'],
+    projectLink: '/projects/dev-forum',
+    githubLink: 'https://github.com/Ayoubzkr/forum'
+  },
+  {
+    imgSrc: '/images/AKDITAl.png',
+    title: 'AKDITAL - Application Médicale',
+    tags: ['Java', 'Spring Boot', 'React', 'Tailwind CSS', 'Full Stack'],
+    projectLink: '/projects/medibook',
+    githubLink: 'https://github.com/Ayoubzkr/application_medical/'
+  },
+  {
+    imgSrc: '/images/logoagc.png',
+    title: 'AGC - Gestion de Stock',
+    tags: ['C#', '.NET', 'Desktop Application', 'Database'],
+    projectLink: '/projects/stock-master',
+    githubLink: 'https://github.com/Ayoubzkr/'
+  }
 ];
 
 const Work = () => {
@@ -78,7 +109,7 @@ const Work = () => {
         </motion.h2>
 
         <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
-          {works.map(({ imgSrc, title, tags, projectLink }, key) => (
+          {works.map(({ imgSrc, title, tags, projectLink, githubLink }, key) => (
             <motion.div 
               key={key}
               initial={{ opacity: 0 }}
@@ -91,7 +122,8 @@ const Work = () => {
                   imgSrc={imgSrc} 
                   title={title} 
                   tags={tags} 
-                  projectLink={projectLink} 
+                  projectLink={projectLink}
+                  githubLink={githubLink}
                 />
               </Suspense>
             </motion.div>
