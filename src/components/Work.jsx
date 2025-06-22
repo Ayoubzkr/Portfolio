@@ -6,12 +6,13 @@ import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { lazy, Suspense } from 'react';
 import { FaGithub } from 'react-icons/fa';
+import CarpoolingPlatformDetails from "./projects/CarpoolingPlatformDetails";
 
 const works = [
   {
     imgSrc: '/images/project-1.jpg',
     title: 'Un système de gestion du guichet automatique',
-    tags: ['C#', 'Finance', 'Development'],
+    tags: ['C', 'Finance', 'Development'],
     projectLink: '/projects/atm-management',
     githubLink: 'https://github.com/yourusername/atm-management'
   },
@@ -60,7 +61,7 @@ const works = [
   {
     imgSrc: '/images/project-7.png',
     title: 'Convertisseur de fichies texte en SQL',
-    tags: ['C#', 'Development'],
+    tags: ['C', 'Development'],
     projectLink: '/projects/convert-text-to-sql',
     githubLink: 'https://github.com/yourusername/text-to-sql-converter'
   },
@@ -84,9 +85,15 @@ const works = [
     tags: ['C#', '.NET', 'Desktop Application', 'Database'],
     projectLink: '/projects/stock-master',
     githubLink: 'https://github.com/Ayoubzkr/'
+  },
+  {
+    imgSrc: '/images/cotrajets.png',
+    title: 'Plateforme Web de Gestion de Covoiturage',
+    tags: ['React', 'Laravel', 'SQL', 'Web App'],
+    projectLink: '/projects/carpooling-platform',
+    githubLink: 'https://github.com/Ayoubzkr/cotrajets'
   }
 ];
-
 const Work = () => {
   return (
     <motion.section 
@@ -107,7 +114,6 @@ const Work = () => {
         >
           Mes réalisations
         </motion.h2>
-
         <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
           {works.map(({ imgSrc, title, tags, projectLink, githubLink }, key) => (
             <motion.div 
@@ -133,5 +139,4 @@ const Work = () => {
     </motion.section>
   );
 };
-
 export default Work;

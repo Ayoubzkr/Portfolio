@@ -17,6 +17,7 @@ import LenisWrapper from './components/LenisWrapper';
 import DevForumDetails from "./components/projects/DevForumDetails";
 import MediBookDetails from "./components/projects/MediBookDetails";
 import StockMasterDetails from "./components/projects/StockMasterDetails";
+import CarpoolingPlatformDetails from "./components/projects/CarpoolingPlatformDetails";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/projects/dev-forum" element={<DevForumDetails />} />
             <Route path="/projects/medibook" element={<MediBookDetails />} />
             <Route path="/projects/stock-master" element={<StockMasterDetails />} />
+            <Route path="/projects/carpooling-platform" element={<CarpoolingPlatformDetails />} />
           </Routes>
         </main>
         <Footer />
